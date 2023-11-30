@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block title %} Asistencia Duoc APP {% endblock %}
+{% block content %}
+<body>
+    <div class="container">
+        <br>
+        <div class="row">
+
+            <div class="col-sm-8">
+                <H3>Asistencia DUOC APP</H3>
+                <h5>Desarrollador: los wnes</h5>
+                <div class="col-sm-4"  >Tiene compras integradas</div>
+            </div>
+
+            <br>
+
+            <div class="col-sm-4">
+                <img width="250" height="250" src="https://play-lh.googleusercontent.com/dWTf0pgRKejB6YvcCM1OdVZU0bIVwU44uNPWmKHAkj-pyj_5fSVQqYqvfdHyzrcTXpux=w240-h480" alt="vsco-logo"/>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success" onclick="mostrarAlertaDescarga()">Instalar</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <br>
+                <h3>ACERCA DE LA APP</h3>
+                <br>
+                <p>Esta aplicación trata sobre un sistema que permite medir la asistencia por clases en Duoc UC</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><img src="https://i.postimg.cc/wvJLTf5M/Menu.png" alt="menu"></div>
+            <div class="col"><img src="https://i.postimg.cc/7YNcZXXK/MiClase.png" alt="clase"></div>
+            <div class="col"><img src="https://i.postimg.cc/8cfpV9LX/ForoUsu.png" alt="foro"></div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    // Función para mostrar la alerta con SweetAlert
+    function mostrarAlertaDescarga() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Estás a punto de descargar la aplicación.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, descargar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, inicia la descarga
+                descargarAplicacion();
+            }
+        });
+    }
+
+    // Función para iniciar la descarga
+    function descargarAplicacion() {
+        // Enlace de descarga
+        var downloadLink = document.createElement('a');
+        downloadLink.href = 'https://cdn.discordapp.com/attachments/958822382489976941/1179462236587163719/app-release.apk?ex=6579dece&is=656769ce&hm=7186b9a11dec9f3a11ba59a1b9f6873094288e9aec9429a3b1b6b851e3300c3d';
+        downloadLink.download = 'nombre-del-archivo.apk';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+    
+</script>
+{% endblock %}
